@@ -13,6 +13,7 @@ async function bootstrap() {
   app.use(helmet());
   app.enableCors({
     origin: 'https://d3rox2eglxl43p.cloudfront.net/',
+  
     allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept,Authorization',
     credentials:true  
   });
