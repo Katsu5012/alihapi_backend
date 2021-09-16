@@ -9,10 +9,10 @@ export class JwtStrategy extends PassportStrategy(BaseJwtStrategy) {
   constructor(readonly  configService: ConfigService) {
     super({
       // Authorization bearerからトークンを読み込む関数を返す
-      // jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      jwtFromRequest: ExtractJwt.fromExtractors([(request:Request)=>{
-        return request.cookies.access_token;
-      }]),
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      // jwtFromRequest: ExtractJwt.fromExtractors([(request:Request)=>{
+      //   return request.cookies.access_token;
+      // }]),
       // 有効期間を無視するかどうか
       ignoreExpiration: false,
       // envファイルから秘密鍵を渡す
