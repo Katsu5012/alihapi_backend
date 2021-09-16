@@ -12,7 +12,7 @@ async function bootstrap() {
   app.use(cookieParser());
   app.use(helmet());
   app.enableCors({
-    origin: 'https://d3rox2eglxl43p.cloudfront.net',
+    origin: 'http://alihapifront.s3-website-ap-northeast-1.amazonaws.com',
     allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept,Authorization',
     credentials:true  
   });
