@@ -48,7 +48,7 @@ export class UsersController {
   async createUser(
     @Body(new ValidationPipe()) createuser: createUser,
     @Res({ passthrough: true }) response: Response,
-  ): Promise<PasswordOmitUser | Error> {
+  ) {
     let user: PasswordOmitUser | undefined = await this.usersService.create({
       user_name: createuser.user_name,
  
@@ -59,7 +59,7 @@ export class UsersController {
     //tokenを生成して返す
     const token = await this.authService.login(user);
     response.cookie('access_token', token, { httpOnly: true,secure: true ,sameSite:"none"});
-    return user;
+    return {user:user,access_token:token};
   }
   //check
   @UseGuards(AuthGuard('jwt'))
