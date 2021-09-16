@@ -23,7 +23,7 @@ response.cookie("access_token",jwt,{httpOnly:true,secure:true,sameSite:"none"})
   @Post('logout')
   @UseGuards(AuthGuard('jwt'))
   async logOut(@Req() request: { user: JwtPayload },@Res({ passthrough: true})response: Response){
-response.clearCookie("access_token",{httpOnly: true,secure: true,sameSite:"none"});
+response.cookie("access_token",{httpOnly: true,secure: true,sameSite:"none"});
 return {message: "success"}
   }
 }
