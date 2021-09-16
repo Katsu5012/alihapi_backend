@@ -17,7 +17,7 @@ export class AppController {
 
     console.log(request.user)
     const jwt=await this.authService.login(request.user);
-// response.cookie("access_token",jwt,{httpOnly:true,secure:true,sameSite:"none"})
+response.cookie("access_token",jwt,{httpOnly:true,secure:true,sameSite:"none"})
     return {user:request.user,access_token:jwt}
   }
   @Post('logout')
