@@ -28,12 +28,12 @@ export class S3Service {
       Bucket: bucket,
       Key: String(name),
       Body: buffer,
-      // ACL: 'public-read',
+      ACL: 'public-read',
       ContentType: mimetype,
-      // ContentDisposition: 'inline',
-      // CreateBucketConfiguration: {
-      //   LocationConstraint: 'ap-northeast-3',
-      // },
+      ContentDisposition: 'inline',
+      CreateBucketConfiguration: {
+        LocationConstraint: 'ap-northeast-3',
+      },
     };
 
 
