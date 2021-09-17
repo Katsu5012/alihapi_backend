@@ -36,15 +36,17 @@ export class S3Service {
       },
     };
 
-    console.log(params);
+
 
     try {
+      console.log("2")
       let s3Response = await this.s3.upload(params).promise();
 
-      console.log(s3Response);
+console.log("3")
       return s3Response
     } catch (e) {
       console.log(e);
+      console.log("4")
     }
   }
   async delete(Key:string){
