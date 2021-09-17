@@ -40,6 +40,7 @@ export class S3Service {
 
     try {
       console.log("2")
+      console.log(params)
       let s3Response = await this.s3.upload(params).promise();
 
 console.log("3")
