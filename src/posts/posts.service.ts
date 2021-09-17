@@ -74,7 +74,7 @@ export class PostsService {
     const timeLine:Posts[]=arrayFlat.sort((a:Posts,b:Posts)=>b.posts_id-a.posts_id)
 
     //
-    return timeLine
+    return timeLine.slice(0, 100)
 
   }
 
