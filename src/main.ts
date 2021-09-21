@@ -3,9 +3,19 @@ import { AppModule } from './app.module';
 import * as cookieParser from 'cookie-parser';
 import * as helmet from 'helmet';
 import {ConfigService} from '@nestjs/config'
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import {ClassSerializerInterceptor} from '@nestjs/common'
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  const config = new DocumentBuilder()
+  .setTitle('alihapi')
+  .setDescription('alihapi API description')
+  .setVersion('2.0')
+  .addTag('')
+  .build();
+const document = SwaggerModule.createDocument(app, config);
+SwaggerModule.setup('api', app, document);
+
   app.useGlobalInterceptors(new ClassSerializerInterceptor(
     app.get(Reflector))
   );
